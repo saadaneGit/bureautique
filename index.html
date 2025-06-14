@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plateforme Bureautique</title>
+    <!-- Intégration de Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Intégration de Font Awesome pour les icônes (menu, œil, etc.) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Votre fichier CSS personnalisé -->
+</head>
+
+<body>
+
+    <div class="container-fluid p-0 d-flex flex-column min-vh-100">
+
+        <!-- Section de Login -->
+        <section id="login-section" class="d-flex justify-content-center align-items-center vh-100 bg-light-blue">
+            <div class="card p-4 shadow-lg rounded-4 login-card">
+                <h2 class="text-center mb-4 text-primary">Accès à la Plateforme</h2>
+                <form id="login-form">
+                    <div class="mb-3">
+                        <label for="username" class="form-label text-muted">Nom d'utilisateur</label>
+                        <input type="text" class="form-control rounded-pill px-3 py-2" id="username" required>
+                    </div>
+                    <div class="mb-4 position-relative"> <!-- Ajout de position-relative pour l'icône -->
+                        <label for="password" class="form-label text-muted">Mot de passe</label>
+                        <input type="password" class="form-control rounded-pill px-3 py-2" id="password" required>
+                        <span class="password-toggle" id="password-toggle">
+                            <i class="fas fa-eye"></i> <!-- Icône pour afficher/cacher le mot de passe -->
+                        </span>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 login-btn">Se
+                        connecter</button>
+                    <div id="login-error" class="alert alert-danger mt-3 d-none text-center rounded-3" role="alert">
+                        Nom d'utilisateur ou mot de passe incorrect.
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Section Principale (après login) -->
+        <section id="main-content" class="d-none flex-grow-1">
+            <!-- Navbar avec bouton menu -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+                <div class="container-fluid">
+                    <button class="btn btn-outline-primary rounded-pill me-3" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNav" aria-controls="offcanvasNav">
+                        <i class="fas fa-bars"></i> Menu
+                    </button>
+                    <a class="navbar-brand text-primary fw-bold" href="#">Plateforme Bureautique</a>
+                </div>
+            </nav>
+
+            <!-- Offcanvas / Menu coulissant -->
+            <div class="offcanvas offcanvas-start bg-dark-blue text-white" tabindex="-1" id="offcanvasNav"
+                aria-labelledby="offcanvasNavLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title text-white" id="offcanvasNavLabel">Navigation</h5>
+                    <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-white fs-5 active-nav-link" aria-current="page" href="#"
+                                id="nav-home"><i class="fas fa-home me-2"></i> Accueil</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-white fs-5" href="#" id="nav-videos"><i
+                                    class="fas fa-video me-2"></i> Vidéos Explicatives</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-white fs-5" href="#" id="nav-quiz"><i
+                                    class="fas fa-question-circle me-2"></i> Tester vos connaissances (QCM)</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-white fs-5" href="#" id="nav-logout"><i
+                                    class="fas fa-sign-out-alt me-2"></i> Déconnexion</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="p-4 content-area flex-grow-1">
+                <!-- Message de bienvenue et boutons principaux -->
+                <div id="welcome-message" class="text-center mt-5">
+                    <h2 class="display-5 text-dark-blue mb-4">Bienvenue sur votre Plateforme de Bureautique !</h2>
+                    <p class="lead text-muted mb-5">Prêt à perfectionner vos compétences ? Choisissez une option
+                        ci-dessous.</p>
+                    <div class="d-grid gap-3 col-lg-4 col-md-6 col-sm-8 mx-auto mt-4">
+                        <button class="btn btn-primary btn-lg rounded-pill shadow-sm py-3 px-4 main-btn"
+                            id="btn-videos"><i class="fas fa-play-circle me-2"></i> Vidéos Explicatives</button>
+                        <button class="btn btn-success btn-lg rounded-pill shadow-sm py-3 px-4 main-btn"
+                            id="btn-quiz"><i class="fas fa-check-square me-2"></i> Tester vos connaissances
+                            (QCM)</button>
+                    </div>
+                </div>
+
+                <!-- Section Vidéos -->
+                <div id="videos-section" class="d-none mt-4 p-lg-5 p-md-3 p-2 bg-white rounded-4 shadow-sm">
+                    <h2 class="text-primary mb-4 text-center">Vidéos Explicatives</h2>
+                    <h3 class="text-dark-blue mb-3">Sommaire des thèmes</h3>
+                    <div class="list-group list-group-flush rounded-3 overflow-hidden shadow-sm">
+                        <a href="#"
+                            class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center video-link"
+                            data-video-url="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&amp;autoplay=1">
+                            <span><i class="fas fa-hand-sparkles me-3 text-secondary"></i> Vidéo de Bienvenue et
+                                Présentation</span>
+                            <i class="fas fa-play-circle text-muted"></i>
+                        </a>
+                        <a href="#"
+                            class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center video-link"
+                            data-video-url="https://www.youtube.com/embed/votre-lien-word-intro?rel=0&amp;autoplay=1">
+                            <span><i class="fas fa-file-word me-3 text-info"></i> Introduction à Microsoft Word</span>
+                            <i class="fas fa-play-circle text-muted"></i>
+                        </a>
+                        <a href="#"
+                            class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center video-link"
+                            data-video-url="https://www.youtube.com/embed/votre-lien-excel-bases?rel=0&amp;autoplay=1">
+                            <span><i class="fas fa-file-excel me-3 text-success"></i> Les bases d'Excel</span>
+                            <i class="fas fa-play-circle text-muted"></i>
+                        </a>
+                        <a href="#"
+                            class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center video-link"
+                            data-video-url="https://www.youtube.com/embed/votre-lien-powerpoint-creer?rel=0&amp;autoplay=1">
+                            <span><i class="fas fa-file-powerpoint me-3 text-danger"></i> Créer des présentations avec
+                                PowerPoint</span>
+                            <i class="fas fa-play-circle text-muted"></i>
+                        </a>
+                        <a href="#"
+                            class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center video-link"
+                            data-video-url="https://www.youtube.com/embed/votre-lien-outlook-gestion?rel=0&amp;autoplay=1">
+                            <span><i class="fas fa-envelope me-3 text-warning"></i> Gestion des e-mails avec
+                                Outlook</span>
+                            <i class="fas fa-play-circle text-muted"></i>
+                        </a>
+                        <a href="#"
+                            class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center video-link"
+                            data-video-url="https://www.youtube.com/embed/votre-lien-shortcut-keys?rel=0&amp;autoplay=1">
+                            <span><i class="fas fa-keyboard me-3 text-secondary"></i> Raccourcis Clavier
+                                Essentiels</span>
+                            <i class="fas fa-play-circle text-muted"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Section Quiz -->
+                <div id="quiz-section" class="d-none mt-4 p-lg-5 p-md-3 p-2 bg-white rounded-4 shadow-sm">
+                    <h2 class="text-success mb-4 text-center">Tester vos connaissances (QCM)</h2>
+
+                    <!-- Conteneur pour la sélection de thème et de série -->
+                    <div id="quiz-selection-area">
+                        <p class="lead text-muted text-center mb-4" id="selection-prompt">Choisissez un thème pour
+                            commencer votre quiz :</p>
+                        <div class="d-grid gap-3 col-lg-8 col-md-10 mx-auto" id="selection-buttons-container">
+                            <!-- Les boutons de thème/série seront injectés ici par JS -->
+                        </div>
+                    </div>
+
+                    <!-- Conteneur pour les questions du quiz -->
+                    <div id="quiz-questions-area" class="d-none">
+                        <div id="quiz-container" class="mb-4">
+                            <!-- Les questions du quiz seront injectées ici par JS -->
+                        </div>
+                        <button class="btn btn-success btn-lg w-100 rounded-pill py-3 shadow-sm"
+                            id="submit-quiz">Soumettre le Quiz</button>
+                    </div>
+
+                    <!-- Résultats du quiz -->
+                    <button class="btn btn-primary btn-lg w-100 rounded-pill py-3 shadow-sm mt-3 d-none"
+                        id="new-quiz-button">Commencer un nouveau Quiz</button>
+                    <div id="quiz-results" class="mt-4 p-4 bg-light rounded-3 shadow-sm d-none"></div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Modal pour les vidéos -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content rounded-4 shadow-lg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title" id="videoModalLabel">Lecture Vidéo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9 rounded-3 overflow-hidden">
+                        <iframe id="videoPlayer" src=""
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3 bg-light text-center">
+        <div class="container">
+            <span class="text-muted">Développé par [Nom du Formateur]</span>
+        </div>
+    </footer>
+
+    <!-- Intégration de Bootstrap JS et votre script JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script> <!-- Votre fichier JavaScript personnalisé -->
+</body>
+
+</html>

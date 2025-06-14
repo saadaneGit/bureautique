@@ -1,0 +1,251 @@
+/* Variables de couleur pour un design doux */
+:root {
+    --primary-color: #6C63FF;
+    /* Un bleu-violet doux */
+    --secondary-color: #00BFB2;
+    /* Un vert-bleu aquatique */
+    --accent-color: #FFC107;
+    /* Jaune doux pour les accents */
+    --light-bg: #F8F9FA;
+    /* Arrière-plan très clair */
+    --dark-blue-text: #2C3E50;
+    /* Texte bleu-gris foncé */
+    --text-muted: #6c757d;
+    /* Texte grisé */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-bg);
+    /* Arrière-plan général */
+    color: var(--dark-blue-text);
+}
+
+/* Couleurs personnalisées pour le design */
+.bg-light-blue {
+    background-color: #E0F2F7;
+    /* Un bleu très clair pour la section de login */
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #5C54D6;
+    /* Légèrement plus foncé au survol */
+    border-color: #5C54D6;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #00A693;
+    /* Légèrement plus foncé au survol */
+    border-color: #00A693;
+    transform: translateY(-2px);
+}
+
+.main-btn {
+    font-size: 1.25rem;
+    /* Plus grande taille de police */
+}
+
+.login-card {
+    max-width: 450px;
+    border: none;
+    border-radius: 20px;
+    /* Coins plus arrondis */
+}
+
+.login-btn {
+    font-weight: bold;
+}
+
+/* Styles pour les cards et sections */
+.card {
+    border-radius: 15px;
+    /* Coins arrondis pour les cartes */
+    border: none;
+}
+
+.form-control {
+    border-radius: 10px;
+    /* Coins arrondis pour les inputs */
+    border-color: #ced4da;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(108, 99, 255, 0.25);
+    /* Ombre de focus adaptée */
+    border-color: var(--primary-color);
+}
+
+/* Icône Afficher/Masquer Mot de passe */
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    /* Ajusté pour centrer verticalement avec le label */
+    transform: translateY(20%);
+    /* Ajustement fin pour le centrage */
+    cursor: pointer;
+    color: var(--text-muted);
+}
+
+.password-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* Offcanvas customisation */
+.offcanvas {
+    background-color: var(--dark-blue-text) !important;
+    /* Couleur de fond pour le offcanvas */
+    width: 280px;
+    /* Largeur ajustée */
+}
+
+.offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.offcanvas-title {
+    color: white !important;
+}
+
+.btn-close-white {
+    filter: invert(1);
+    /* Rend la croix blanche */
+}
+
+.offcanvas-body .nav-link {
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.offcanvas-body .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.offcanvas-body .active-nav-link {
+    background-color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Contenu principal padding */
+.content-area {
+    padding: 30px;
+}
+
+/* Style des listes de vidéos */
+.list-group-item {
+    border-color: #eee;
+    transition: background-color 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f0f8ff;
+    /* Bleu très clair au survol */
+}
+
+/* Quiz specific styles */
+.quiz-question-card {
+    border: 1px solid #e9ecef;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-question-card .form-check-label {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.quiz-question-card .form-check-input:checked+.form-check-label {
+    background-color: #e6f7ff;
+    /* Bleu clair quand sélectionné */
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.explanation-section {
+    background-color: #e9f5ef;
+    /* Fond vert pâle pour l'explication */
+    border-left: 5px solid var(--secondary-color);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.quiz-result-correct {
+    color: var(--secondary-color);
+    /* Vert pour les bonnes réponses */
+    font-weight: bold;
+}
+
+.quiz-result-incorrect {
+    color: #DC3545;
+    /* Rouge pour les mauvaises réponses */
+    font-weight: bold;
+}
+
+.remark-positive {
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.remark-neutral {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.remark-negative {
+    color: #DC3545;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Footer style */
+.footer {
+    background-color: #f8f9fa;
+    /* Light background */
+    border-top: 1px solid #e9ecef;
+    /* Subtle top border */
+    color: #6c757d;
+    /* Muted text color */
+    padding: 15px 0;
+    margin-top: 30px;
+    /* Space from content above */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content-area {
+        padding: 15px;
+    }
+
+    .main-btn {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .login-card {
+        padding: 20px;
+    }
+}
